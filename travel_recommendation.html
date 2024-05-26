@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+
+        .navbar .social-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .social-icons a {
+            color: white;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input[type="text"] {
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .recommendations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="social-icons">
+        <a href="#"><img src="facebook_icon.png" alt="Facebook"></a>
+        <a href="#"><img src="twitter_icon.png" alt="Twitter"></a>
+        <a href="#"><img src="instagram_icon.png" alt="Instagram"></a>
+        <a href="#"><img src="linkedin_icon.png" alt="LinkedIn"></a>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="search-button">Search</button>
+        <button id="reset-button">Reset</button>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Travel Recommendations</h1>
+    <p>Welcome to Travel Recommendations! We are dedicated to helping you discover the best travel destinations, tips,
+        and guides to make your next trip unforgettable. Our team of travel enthusiasts is here to provide you with
+        personalized recommendations tailored to your interests.</p>
+    <div id="recommendations" class="recommendations"></div>
+</div>
+
+<script src="travel_recommendation.js"></script>
+
+</body>
+</html>
