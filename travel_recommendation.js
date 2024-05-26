@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let allData = {};
 
     fetch('travel_recommendation_api.json')
@@ -13,13 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const resetButton = document.getElementById('reset-button');
     const searchInput = document.getElementById('search-input');
 
-    searchButton.addEventListener('click', function() {
+    searchButton.addEventListener('click', function () {
         const keyword = searchInput.value.toLowerCase();
         const filteredData = filterRecommendations(allData, keyword);
         displayRecommendations(filteredData);
     });
 
-    resetButton.addEventListener('click', function() {
+    resetButton.addEventListener('click', function () {
         searchInput.value = '';
         displayRecommendations(allData);
     });
@@ -50,7 +50,7 @@ function displayRecommendations(data) {
 function filterRecommendations(data, keyword) {
     const filteredCountries = data.countries.map(country => {
         const filteredCities = country.cities.filter(city => city.name.toLowerCase().includes(keyword));
-        return { ...country, cities: filteredCities };
+        return {...country, cities: filteredCities};
     }).filter(country => country.cities.length > 0);
 
     const filteredTemples = data.temples.filter(temple => temple.name.toLowerCase().includes(keyword));
@@ -83,7 +83,13 @@ function createCard(name, imageUrl, description, countryName) {
 
     if (countryName) {
         const timeInfo = document.createElement('p');
-        const options = { timeZone: getTimeZone(countryName), hour12: true, hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        const options = {
+            timeZone: getTimeZone(countryName),
+            hour12: true,
+            hour: 'numeric',
+            minute: 'numeric',
+            second: 'numeric'
+        };
         const localTime = new Date().toLocaleTimeString('en-US', options);
         timeInfo.textContent = `Current time in ${countryName}: ${localTime}`;
         card.appendChild(timeInfo);
@@ -97,7 +103,10 @@ function getTimeZone(country) {
         'Australia': 'Australia/Sydney',
         'Japan': 'Asia/Tokyo',
         'Brazil': 'America/Sao_Paulo',
-        // Добавьте другие временные зоны по мере необходимости
+        'Cambodia': 'Asia/Bangkok',
+        'India': 'Asia/Kolkata',
+        'Polynesia': 'Pacific/Apia',
+
     };
     return timeZones[country] || 'UTC';
 }
